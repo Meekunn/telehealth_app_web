@@ -6,3 +6,17 @@ interface IBaseRoutes {
 	// isProtected: boolean;
 	layout?: ({ children }) => JSX.Element;
 }
+
+
+interface LessonTextContent {
+	[lesson: string]: {
+		name: string;
+		intro?: React.LazyExoticComponent<() => React.ReactNode> | React.ReactElement;
+		subHeadings: {
+			[subHeading: string]: {
+				name: string;
+				content: React.LazyExoticComponent<() => React.ReactNode>| React.ReactElement;
+			}
+		}
+	}
+}
