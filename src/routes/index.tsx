@@ -2,6 +2,9 @@ import { Fragment } from 'react';
 import { Route, Routes, BrowserRouter as Router } from 'react-router-dom';
 import routes from './routes';
 import ErrorPage from './ErrorPage';
+import { Dummy } from './Dummy';
+// import Sidebar from '../modules/sidebar';
+
 
 const renderRoutes = ({ component: Component, ...route }: IBaseRoutes) => {
 	const Layout = (route.layout ? route.layout : Fragment) as React.ElementType;
@@ -31,6 +34,8 @@ export default function AppRoutes() {
 					element={<ErrorPage />}
 				/>
 				<Route path="*" element={<div>No match</div>} />
+				{/* <Route path="sidebar" element={<Sidebar/>} /> */}
+				<Route path="/dummy" element={<Dummy/>} />
 			</Routes>
 		</Router>
 	);

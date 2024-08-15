@@ -1,0 +1,25 @@
+import React from 'react';
+import './CircularProgressBar.css'; // Import CSS for styling
+
+function CircularProgressBar({ progress }) {
+    const radius = 50;
+    const circumference = 2 * Math.PI * radius;
+    const offset = circumference - (progress / 100) * circumference;
+
+    return (
+        <svg className="progress-ring" width="120" height="120">
+            <circle
+                className="progress-ring__circle"
+                stroke="blue"
+                strokeWidth="10"
+                fill="transparent"
+                r={radius}
+                cx="60"
+                cy="60"
+                style={{ strokeDasharray: circumference, strokeDashoffset: offset }}
+            />
+        </svg>
+    );
+}
+
+export default CircularProgressBar;

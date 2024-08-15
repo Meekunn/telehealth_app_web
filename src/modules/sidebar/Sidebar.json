@@ -1,0 +1,71 @@
+[
+    {
+        "title": "My Knowledgable Check",
+        "icon" : "bi-phone-fill"
+        
+    },
+    {
+        "title": "Course Navigation Tuitorial",
+        "icon" : "bi-phone-fill",
+        "childrens": [
+            {
+                "title":"Tutorial Video",
+                "icon" : "bi-phone-fill",
+                "path":"/What_is_your_name"
+                
+            },
+            {
+                "title":"Tutorial Video1",
+                "icon" : "bi-phone-fill",
+                "path":"/What_is_your_name"
+            },
+            {
+                "title":"Tutorial Video2",
+                "icon" : "bi-phone-fill",
+                "path":"/What_is_your_name"
+            }
+        ]
+    },
+    {
+        "title": "Module 1 : Introduction to Cybersecurity",
+        "icon" : "bi-phone-fill",
+        "childrens": [
+            {
+                "title":"What is Cyber Security",
+                "icon" : "bi-phone-fill",
+                "path":"/What_is_your_name"
+            },
+            {
+                "title":"What is Cyber Security2",
+                "icon" : "bi-phone-fill",
+                "path":"/What_is_your_name"
+            },
+            {
+                "title":"What is Cyber Security3",
+                "icon" : "bi-phone-fill",
+                "path":"/What_is_your_name"
+            }
+        ]
+    },
+    {
+        "title": "Organization Data",
+        "icon" : "bi-phone-fill",
+        "childrens": [
+            {
+                "title":"What is Organization Data",
+                "icon" : "bi-phone-fill",
+                "path":"/What_is_your_name"
+            },
+            {
+                "title":"What is Organization Data2",
+                "icon" : "bi-phone-fill",
+                "path":"/What_is_your_name"
+            },
+            {
+                "title":"What is Organization Data3",
+                "icon" : "bi-phone-fill",
+                "path":"/What_is_your_name"
+            }
+        ]
+    }
+]
