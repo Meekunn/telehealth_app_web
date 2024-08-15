@@ -1,9 +1,7 @@
-//import Navigation from '../reusables/Navigation';
-
-import { Stack } from '@chakra-ui/react';
+import Navigation from '../resuables/Navigation';
 
 const SuperAdminLayout = ({ children }: { children?: React.ReactNode }) => {
-	return <Stack>{children}</Stack>;
+	return <Navigation>{children}</Navigation>;
 };
 
 export default SuperAdminLayout;
