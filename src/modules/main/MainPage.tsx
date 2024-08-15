@@ -6,9 +6,6 @@ const MainPage = () => {
     <Stack>
       <Heading>This is just a Dummy Page...</Heading>
     </Stack>
-    // <>
-    //   <Lesson />
-    // </>
   );
 };
 

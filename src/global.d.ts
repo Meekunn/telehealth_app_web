@@ -11,11 +11,13 @@ interface IBaseRoutes {
 interface LessonTextContent {
 	[lesson: string]: {
 		name: string;
-		intro?: React.LazyExoticComponent<() => React.ReactNode> | React.ReactElement;
+		intro?: JSX.Element;
 		subHeadings: {
 			[subHeading: string]: {
 				name: string;
-				content: React.LazyExoticComponent<() => React.ReactNode>| React.ReactElement;
+				content: React.LazyExoticComponent<() => React.ReactNode> | React.ReactElement;
+				breakAfter?: JSX.Element | string | boolean;
+				breakBefore?: JSX.Element | string | boolean;
 			}
 		}
 	}

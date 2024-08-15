@@ -1,19 +1,21 @@
 import React from "react";
 import LessonText from "./LessonText";
 import { Box } from "@chakra-ui/react";
-const IntroComponent = React.lazy(() => import("./components/Intro"));
+// const IntroComponent = React.lazy(() => import("./components/Intro"));
 
-const ContentComponent = React.lazy(
-  () => import("./components/SubHeadingContent")
-);
+// const ContentComponent = React.lazy(
+//   () => import("./components/SubHeadingContent")
+// );
 
 function Lesson() {
+  // demo lesson content data for props testing
   const lessonContent: LessonTextContent = {
     "3": {
       name: "Security Vulnerability and Exploits",
       intro: (
         <React.Suspense fallback={<div>Loading...</div>}>
-          <IntroComponent />
+          {/* <IntroComponent /> */}
+          <Box></Box>
         </React.Suspense>
       ),
       subHeadings: {
@@ -21,7 +23,8 @@ function Lesson() {
           name: "Introduction",
           content: (
             <React.Suspense fallback={<div>Loading...</div>}>
-              <ContentComponent />
+              {/* <ContentComponent /> */}
+              <Box></Box>
             </React.Suspense>
           ),
         },
@@ -29,14 +32,14 @@ function Lesson() {
           name: "Introduction",
           content: (
             <React.Suspense fallback={<div>Loading...</div>}>
-              <ContentComponent />
+              {/* <ContentComponent /> */}
+              <Box></Box>
             </React.Suspense>
           ),
         },
       },
     },
   };
-  console.log(lessonContent[3]);
   return (
     <Box>
       <LessonText lesson={lessonContent[3]} />
