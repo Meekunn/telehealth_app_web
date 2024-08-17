@@ -11,11 +11,12 @@
 }
 .sideContainer{
     width: 360px;
-    flex-shrink: 0;
+
     height: 100%;
-    padding: 20px 0px 0px 0px;
+    padding: 40px 0px 0px 0px;
     background-color: #3182CE;
     overflow: auto;
+    margin-left: -24px;
 }
 .sidebar-Item{
     padding: 1em;

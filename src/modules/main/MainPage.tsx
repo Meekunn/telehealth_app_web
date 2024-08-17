@@ -1,11 +1,9 @@
-import { Stack } from '@chakra-ui/react';
-import Sidebar from '../sidebar/sidebar';
-
+import { Heading, Stack } from '@chakra-ui/react';  
 const MainPage = () => {
 	return (
 		<Stack>
-			{/* <Heading>This is just a Dummy Page...</Heading> */}
-			<Sidebar/>
+			<Heading>This is just a Dummy Page...</Heading>
+			
 		</Stack>
 	);
 };

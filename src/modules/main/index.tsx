@@ -2,7 +2,7 @@ import { Navigate, Route, Routes, useLocation } from 'react-router-dom';
 import Dashboard from './Outlet';
 import { mainPaths } from '../../routes/paths';
 import MainPage from './MainPage';
-import Sidebar from '../sidebar/sidebar';
+import Sidebar from '../../resuables/sidebar/sidebar';
 
 function SuperAdminRoutes() {
 	const location = useLocation();
