@@ -43,27 +43,25 @@ const SidebarItems = ({ title, progress, items, isOpen, onToggle }: ICourseModul
 			{isOpen && (
 				<VStack align="start" mt={4} bg={'transparent'} gap={4}>
 					{items.map((item, index) => (
-						<>
-							<Flex
-								key={index}
-								align="center"
-								gap={4}
-								transition="0.25 all ease-in-out"
-								_hover={{ bg: 'green.100', '& > p': { fontWeight: 'extrabold' } }}
-								w="full"
-								p={2}
-								pl={6}
-							>
-								{item.progress === 0 ? (
-									<Icon as={PiCaretCircleRightLight} color="green.400" w="23px" h="23px" />
-								) : item.progress === 100 ? (
-									<Icon as={GoCheckCircleFill} color="green.400" w="23px" h="23px" />
-								) : (
-									<CircularProgress value={item.progress} size="20px" color="green.400" thickness="10px" />
-								)}
-								<Text fontSize={'sm'}>{item.title}</Text>
-							</Flex>
-						</>
+						<Flex
+							key={index}
+							align="center"
+							gap={4}
+							transition="0.25 all ease-in-out"
+							_hover={{ bg: 'green.100', '& > p': { fontWeight: 'extrabold' } }}
+							w="full"
+							p={2}
+							pl={6}
+						>
+							{item.progress === 0 ? (
+								<Icon as={PiCaretCircleRightLight} color="green.400" w="23px" h="23px" />
+							) : item.progress === 100 ? (
+								<Icon as={GoCheckCircleFill} color="green.400" w="23px" h="23px" />
+							) : (
+								<CircularProgress value={item.progress} size="20px" color="green.400" thickness="10px" />
+							)}
+							<Text fontSize={'sm'}>{item.title}</Text>
+						</Flex>
 					))}
 				</VStack>
 			)}
