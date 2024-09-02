@@ -21,4 +21,4 @@ interface LessonTextContent {
 			}
 		}
 	}
-}
+} 
