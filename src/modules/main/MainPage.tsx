@@ -5,6 +5,7 @@ const MainPage = () => {
   return (
     <Stack>
       <Heading>This is just a Dummy Page...</Heading>
+      {/* <Lesson video /> */}
     </Stack>
   );
 };

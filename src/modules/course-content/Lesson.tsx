@@ -1,13 +1,20 @@
 import React from "react";
 import LessonText from "./LessonText";
 import { Box } from "@chakra-ui/react";
+import LessonVideo from "./LessonVideo";
+import LessonQuiz from "./LessonQuiz";
 // const IntroComponent = React.lazy(() => import("./components/Intro"));
 
 // const ContentComponent = React.lazy(
 //   () => import("./components/SubHeadingContent")
 // );
+interface props {
+  video?: boolean;
+  text?: boolean;
+  quiz?: boolean;
+}
 
-function Lesson() {
+function Lesson({ video = false, text = false, quiz = false }: props) {
   // demo lesson content data for props testing
   const lessonContent: LessonTextContent = {
     "3": {
@@ -42,7 +49,9 @@ function Lesson() {
   };
   return (
     <Box>
-      <LessonText lesson={lessonContent[3]} />
+      {text && <LessonText lesson={lessonContent[3]} />}
+      {video && <LessonVideo />}
+      {quiz && <LessonQuiz />}
     </Box>
   );
 }

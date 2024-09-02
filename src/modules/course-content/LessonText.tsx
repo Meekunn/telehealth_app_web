@@ -1,5 +1,6 @@
 import { Box } from "@chakra-ui/react";
 import lessonBackground from "../../assets/lessonBackground.jpg";
+import HeaderIntro from "./components/HeaderIntro";
 
 function LessonText({
   lesson,
@@ -15,36 +16,23 @@ LessonTextContent) {
       backgroundRepeat="no-repeat"
       backgroundSize="cover"
     >
-      <Box
-        height="90vh"
-        px="10vw"
-        position="relative"
-        color="#fff"
-        background="rgba(0,0,0,0.2)"
-      >
-        <Box
-          as="h1"
-          position="absolute"
-          top="50%"
-          translateY="-50%"
-          fontSize="32px"
-          fontWeight="400"
-        >
-          hhhhhhhhhhhhhhhdhhhhhhhhhhhh dd
-        </Box>
-      </Box>
-      {lesson.intro && (
-        <Box backgroundColor="#fff" h="100%" w="100%" py="130px" px="16px">
+      <HeaderIntro headerText={lesson.name} intro={lesson.intro} />
+      {/* {lesson.intro && (
+        <Box bgColor="brand.white" h="100%" w="100%" py="130px" px="16px">
           {lesson.intro}
         </Box>
-      )}
+      )} */}
       {Object.keys(lesson["subHeadings"]).map((key) => {
         const subHeading = lesson["subHeadings"][key];
 
         const lessonSection = (
           <Box
             key={key}
-            bgColor={count % 2 === 0 ? "rgb(240,240,240)" : "#fff"}
+            h="100%"
+            w="100%"
+            py="130px"
+            px="16px"
+            bgColor={count % 2 === 0 ? "#f0f0f0" : "brand.white"}
           >
             <Box as="h2">{subHeading.name}</Box>
             <>{subHeading.content}</>
