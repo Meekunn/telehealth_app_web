@@ -9,3 +9,7 @@
 * {
 	box-sizing: border-box;
 }
+.subHeading ol, .subHeading ul {
+    margin: revert !important; 
+    padding: revert !important;
+}

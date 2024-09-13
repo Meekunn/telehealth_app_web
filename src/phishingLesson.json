@@ -1,0 +1,448 @@
+{
+    "introToPhishing": {
+        "header": {
+            "id": "1",
+            "image": "lessonBackground.jpg",
+            "name": "Introduction to Phishing"
+        },
+        "intro": {
+            "image": "zen.png",
+            "texts": {
+                "paragraph1": {
+                    "type": "p",
+                    "content": "Welcome to the Introduction to Phishing lesson. This course will help you understand what phishing is, how to identify it, and how to protect yourself and your organization from phishing attacks."
+                }
+            }
+        },
+        "subHeadings": {
+            "whatIsPhishing": {
+                "name": "What is Phishing?",
+                "content": "<p>Phishing is a type of cyber attack that uses disguised email as a weapon. The goal is to trick the email recipient into believing that the message is something they want or need — a request from their bank, for instance, or a note from someone in their company — and to click a link or download an attachment.</p><p>What really distinguishes phishing is the form the message takes: the attackers masquerade as a trusted entity of some kind, often a real or plausibly real person, or a company the victim might do business with.</p>"
+            },
+            "typesOfPhishing": {
+                "name": "Types of Phishing Attacks",
+                "content": "<ul><li><strong>Email Phishing:</strong> The most common type, where attackers send malicious emails to a large number of recipients.</li><li><strong>Spear Phishing:</strong> Targeted attacks against specific individuals or companies.</li><li><strong>Whaling:</strong> Phishing attempts directed at senior executives and other high-profile targets.</li><li><strong>Smishing:</strong> Phishing conducted via SMS text messages.</li><li><strong>Vishing:</strong> Phishing conducted via voice calls or voicemail.</li></ul>"
+            },
+            "identifyingPhishing": {
+                "name": "How to Identify Phishing Attempts",
+                "content": "<p>Look out for these common signs of phishing attempts:</p><ol><li>Urgent or threatening language in the subject line.</li><li>Mismatched or suspicious URLs.</li><li>Poor spelling and grammar.</li><li>Requests for sensitive information.</li><li>Unexpected attachments.</li><li>Generic greetings instead of personalized ones.</li></ol>"
+            },
+            "protectingYourself": {
+                "name": "Protecting Yourself from Phishing",
+                "content": "<p>Here are some steps you can take to protect yourself from phishing attacks:</p><ul><li>Be cautious about all communications you receive.</li><li>Don't click on links or download attachments from unknown sources.</li><li>Use multi-factor authentication whenever possible.</li><li>Keep your software and systems updated.</li><li>Use anti-phishing toolbars in your web browser.</li><li>Verify a site's security before submitting sensitive information.</li></ul>"
+            }
+        },
+        "quizzes": {
+            "quiz1": {
+                "type": "multiple-choice",
+                "question": "What is the primary goal of a phishing attack?",
+                "options": {
+                    "a": {
+                        "text": "To install software updates",
+                        "isCorrect": false
+                    },
+                    "b": {
+                        "text": "To trick recipients into revealing sensitive information",
+                        "isCorrect": true
+                    },
+                    "c": {
+                        "text": "To improve email communication",
+                        "isCorrect": false
+                    },
+                    "d": {
+                        "text": "To promote products or services",
+                        "isCorrect": false
+                    }
+                }
+            },
+            "quiz2": {
+                "type": "select-multiple",
+                "question": "Which of the following are common types of phishing attacks?",
+                "instruction": "Select all that apply",
+                "options": {
+                    "a": {
+                        "text": "Email Phishing",
+                        "isCorrect": true
+                    },
+                    "b": {
+                        "text": "Spear Phishing",
+                        "isCorrect": true
+                    },
+                    "c": {
+                        "text": "Whaling",
+                        "isCorrect": true
+                    },
+                    "d": {
+                        "text": "Smishing",
+                        "isCorrect": true
+                    }
+                },
+                "correctAnswers": [
+                    "a",
+                    "b",
+                    "c",
+                    "d"
+                ]
+            },
+            "quiz3": {
+                "type": "dropdown",
+                "question": "Which type of phishing attack is specifically targeted at senior executives?",
+                "answerField": {
+                    "type": "dropdown",
+                    "options": [
+                        "Email Phishing",
+                        "Spear Phishing",
+                        "Whaling",
+                        "Smishing"
+                    ]
+                },
+                "correctAnswers": [
+                    "Whaling"
+                ]
+            },
+            "quiz4": {
+                "type": "fill-in-the-blank",
+                "question": "Phishing conducted via SMS text messages is known as _______.",
+                "answerField": {
+                    "type": "text"
+                },
+                "correctAnswers": [
+                    "Smishing"
+                ]
+            },
+            "quiz5": {
+                "type": "select-multiple",
+                "question": "Which of the following are signs of a potential phishing email?",
+                "instruction": "Select all that apply",
+                "options": {
+                    "a": {
+                        "text": "Urgent or threatening language",
+                        "isCorrect": true
+                    },
+                    "b": {
+                        "text": "Mismatched URLs",
+                        "isCorrect": true
+                    },
+                    "c": {
+                        "text": "Requests for sensitive information",
+                        "isCorrect": true
+                    },
+                    "d": {
+                        "text": "Personalized greeting",
+                        "isCorrect": false
+                    }
+                },
+                "correctAnswers": [
+                    "a",
+                    "b",
+                    "c"
+                ]
+            },
+            "quiz6": {
+                "type": "multiple-choice",
+                "question": "What should you do if you receive an unexpected email with an attachment?",
+                "options": {
+                    "a": {
+                        "text": "Open the attachment immediately",
+                        "isCorrect": false
+                    },
+                    "b": {
+                        "text": "Forward the email to all your contacts",
+                        "isCorrect": false
+                    },
+                    "c": {
+                        "text": "Delete the email without opening the attachment",
+                        "isCorrect": true
+                    },
+                    "d": {
+                        "text": "Reply to the sender asking for more information",
+                        "isCorrect": false
+                    }
+                }
+            }
+        },
+        "email": {
+            "recipient": "psa8.sa@gmail.com",
+            "subject": "Urgent: Your Account Security at Risk",
+            "body": "PhishingMail.html"
+        }
+    },
+    "socialEngineering": {
+        "header": {
+            "id": "2",
+            "image": "lessonBackground.jpg",
+            "name": "Understanding Social Engineering"
+        },
+        "intro": {
+            "texts": {
+                "paragraph1": {
+                    "type": "p",
+                    "content": "This lesson explores social engineering, a manipulation technique that exploits human error to gain private information, access, or valuables. You'll learn about various social engineering tactics, real-world examples, and how to defend against these attacks."
+                }
+            }
+        },
+        "subHeadings": {
+            "whatIsSocialEngineering": {
+                "name": "What is Social Engineering?",
+                "content": "<p>Social engineering is the art of manipulating people so they give up confidential information. The types of information these criminals are seeking can vary, but when individuals are targeted the criminals are usually trying to trick you into giving them your passwords or bank information, or access your computer to secretly install malicious software–that will give them access to your passwords and bank information as well as giving them control over your computer.</p>"
+            },
+            "commonTactics": {
+                "name": "Common Social Engineering Tactics",
+                "content": "<ol><li>Phishing: Sending fraudulent emails or websites to deceive recipients into revealing sensitive information.</li><li>Pretexting: Creating a fabricated scenario to engage a victim and steal their information.</li><li>Baiting: Offering something enticing to an end user in exchange for private data.</li><li>Quid Pro Quo: Requesting private information in exchange for a service.</li><li>Tailgating: Unauthorized person follows an authorized person into a restricted area.</li></ol>"
+            },
+            "realWorldExamples": {
+                "name": "Real-World Social Engineering Examples",
+                "content": "<ul><li>The Twitter Bitcoin Scam (2020): Hackers used social engineering to gain access to Twitter's admin tools, allowing them to tweet from high-profile accounts.</li><li>The RSA Security Breach (2011): Attackers sent phishing emails with malware-laden Excel spreadsheets to RSA employees, compromising the company's SecurID two-factor authentication system.</li><li>The Uber Data Breach (2016): Hackers used stolen credentials to access Uber's GitHub account, where they found AWS access keys, leading to a massive data breach.</li></ul>"
+            },
+            "preventionStrategies": {
+                "name": "Preventing Social Engineering Attacks",
+                "content": "<ul><li>Implement a comprehensive security awareness training program.</li><li>Use multi-factor authentication wherever possible.</li><li>Be skeptical of unsolicited contact and unusual requests.</li><li>Verify the identity of individuals requesting sensitive information.</li><li>Keep software and systems updated.</li><li>Use email filters and anti-malware software.</li><li>Establish clear security policies and procedures.</li></ul>"
+            }
+        },
+        "quizzes": {
+            "quiz1": {
+                "type": "multiple-choice",
+                "question": "What is the primary goal of social engineering?",
+                "options": {
+                    "a": {
+                        "text": "To install software updates",
+                        "isCorrect": false
+                    },
+                    "b": {
+                        "text": "To manipulate people into giving up confidential information",
+                        "isCorrect": true
+                    },
+                    "c": {
+                        "text": "To improve network security",
+                        "isCorrect": false
+                    },
+                    "d": {
+                        "text": "To optimize computer performance",
+                        "isCorrect": false
+                    }
+                }
+            },
+            "quiz2": {
+                "type": "select-multiple",
+                "question": "Which of the following are common social engineering tactics?",
+                "instruction": "Select all that apply",
+                "options": {
+                    "a": {
+                        "text": "Phishing",
+                        "isCorrect": true
+                    },
+                    "b": {
+                        "text": "Pretexting",
+                        "isCorrect": true
+                    },
+                    "c": {
+                        "text": "Baiting",
+                        "isCorrect": true
+                    },
+                    "d": {
+                        "text": "Encryption",
+                        "isCorrect": false
+                    }
+                },
+                "correctAnswers": [
+                    "a",
+                    "b",
+                    "c"
+                ]
+            },
+            "quiz3": {
+                "type": "dropdown",
+                "question": "Which social engineering tactic involves an unauthorized person following an authorized person into a restricted area?",
+                "answerField": {
+                    "type": "dropdown",
+                    "options": [
+                        "Phishing",
+                        "Pretexting",
+                        "Baiting",
+                        "Tailgating"
+                    ]
+                },
+                "correctAnswers": [
+                    "Tailgating"
+                ]
+            },
+            "quiz4": {
+                "type": "fill-in-the-blank",
+                "question": "The practice of offering something enticing to an end user in exchange for private data is known as _______.",
+                "answerField": {
+                    "type": "text"
+                },
+                "correctAnswers": [
+                    "Baiting"
+                ]
+            },
+            "quiz5": {
+                "type": "select-multiple",
+                "question": "Which of the following are effective strategies for preventing social engineering attacks?",
+                "instruction": "Select all that apply",
+                "options": {
+                    "a": {
+                        "text": "Implementing security awareness training",
+                        "isCorrect": true
+                    },
+                    "b": {
+                        "text": "Using multi-factor authentication",
+                        "isCorrect": true
+                    },
+                    "c": {
+                        "text": "Sharing passwords with trusted colleagues",
+                        "isCorrect": false
+                    },
+                    "d": {
+                        "text": "Keeping software and systems updated",
+                        "isCorrect": true
+                    }
+                },
+                "correctAnswers": [
+                    "a",
+                    "b",
+                    "d"
+                ]
+            }
+        }
+    },
+    "passwordSecurity": {
+        "header": {
+            "id": "3",
+            "image": "lessonBackground.jpg",
+            "name": "Essentials of Password Security"
+        },
+        "intro": {
+            "texts": {
+                "paragraph1": {
+                    "type": "p",
+                    "content": "This lesson covers the fundamentals of password security, including best practices for creating strong passwords, the importance of password management, and emerging authentication technologies. You'll learn how to protect your accounts and sensitive information from unauthorized access."
+                }
+            }
+        },
+        "subHeadings": {
+            "importanceOfPasswordSecurity": {
+                "name": "Why Password Security Matters",
+                "content": "<p>Passwords are often the first line of defense against unauthorized access to your accounts and sensitive information. Weak passwords can lead to account compromises, identity theft, financial loss, and data breaches. As our lives become increasingly digital, the importance of robust password security cannot be overstated.</p>"
+            },
+            "creatingStrongPasswords": {
+                "name": "Creating Strong Passwords",
+                "content": "<ol><li>Length: Use at least 12 characters, preferably more.</li><li>Complexity: Include a mix of uppercase and lowercase letters, numbers, and symbols.</li><li>Uniqueness: Avoid using the same password for multiple accounts.</li><li>Avoid personal information: Don't use easily guessable information like birthdates or names.</li><li>Use passphrases: Consider using a sequence of random words, which can be both strong and memorable.</li></ol>"
+            },
+            "passwordManagement": {
+                "name": "Password Management Best Practices",
+                "content": "<ul><li>Use a reputable password manager to generate and store complex passwords.</li><li>Enable two-factor authentication (2FA) whenever possible.</li><li>Regularly update your passwords, especially after a known breach.</li><li>Avoid sharing passwords or storing them in unsecured locations.</li><li>Use biometric authentication when available, but not as the sole method.</li><li>Be cautious of password reset questions and use unique, hard-to-guess answers.</li></ul>"
+            },
+            "emergingTechnologies": {
+                "name": "Emerging Authentication Technologies",
+                "content": "<ul><li>Biometric authentication: Using physical characteristics like fingerprints or facial recognition.</li><li>Behavioral biometrics: Analyzing patterns in human activity, such as typing rhythms or mouse movements.</li><li>Hardware tokens: Physical devices that generate one-time passwords.</li><li>Zero-knowledge proofs: Cryptographic methods that prove knowledge of information without revealing the information itself.</li><li>Blockchain-based authentication: Leveraging distributed ledger technology for secure, decentralized identity verification.</li></ul>"
+            }
+        },
+        "quizzes": {
+            "quiz1": {
+                "type": "multiple-choice",
+                "question": "What is the recommended minimum length for a strong password?",
+                "options": {
+                    "a": {
+                        "text": "8 characters",
+                        "isCorrect": false
+                    },
+                    "b": {
+                        "text": "10 characters",
+                        "isCorrect": false
+                    },
+                    "c": {
+                        "text": "12 characters",
+                        "isCorrect": true
+                    },
+                    "d": {
+                        "text": "16 characters",
+                        "isCorrect": false
+                    }
+                }
+            },
+            "quiz2": {
+                "type": "select-multiple",
+                "question": "Which of the following contribute to creating a strong password?",
+                "instruction": "Select all that apply",
+                "options": {
+                    "a": {
+                        "text": "Using a mix of uppercase and lowercase letters",
+                        "isCorrect": true
+                    },
+                    "b": {
+                        "text": "Including numbers and symbols",
+                        "isCorrect": true
+                    },
+                    "c": {
+                        "text": "Using the same password for multiple accounts",
+                        "isCorrect": false
+                    },
+                    "d": {
+                        "text": "Avoiding personal information",
+                        "isCorrect": true
+                    }
+                },
+                "correctAnswers": [
+                    "a",
+                    "b",
+                    "d"
+                ]
+            },
+            "quiz3": {
+                "type": "dropdown",
+                "question": "What technology uses physical characteristics like fingerprints or facial features for authentication?",
+                "answerField": {
+                    "type": "dropdown",
+                    "options": [
+                        "Password manager",
+                        "Two-factor authentication",
+                        "Biometric authentication",
+                        "Zero-knowledge proof"
+                    ]
+                },
+                "correctAnswers": [
+                    "Biometric authentication"
+                ]
+            },
+            "quiz4": {
+                "type": "fill-in-the-blank",
+                "question": "A _______ is a tool that helps generate and store complex passwords securely.",
+                "answerField": {
+                    "type": "text"
+                },
+                "correctAnswers": [
+                    "password manager"
+                ]
+            },
+            "quiz5": {
+                "type": "select-multiple",
+                "question": "Which of the following are best practices for password management?",
+                "instruction": "Select all that apply",
+                "options": {
+                    "a": {
+                        "text": "Using a reputable password manager",
+                        "isCorrect": true
+                    },
+                    "b": {
+                        "text": "Enabling two-factor authentication",
+                        "isCorrect": true
+                    },
+                    "c": {
+                        "text": "Sharing passwords with trusted colleagues",
+                        "isCorrect": false
+                    },
+                    "d": {
+                        "text": "Regularly updating passwords",
+                        "isCorrect": true
+                    }
+                },
+                "correctAnswers": [
+                    "a",
+                    "b",
+                    "d"
+                ]
+            }
+        }
+    }
+}

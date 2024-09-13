@@ -1,22 +1,19 @@
 import { Box } from "@chakra-ui/react";
-import lessonBackground from "../../assets/lessonBackground.jpg";
-import HeaderIntro from "./components/HeaderIntro";
+// import lessonBackground from "../../assets/lessonBackground.jpg";
+// import HeaderIntro from "./components/HeaderIntro";
+
+interface prop {
+  lesson: LessonContent;
+}
 
 function LessonText({
   lesson,
 }: //   ...lesson
-LessonTextContent) {
+prop) {
   let count = lesson.intro ? 2 : 1;
   return (
-    <Box
-      width="100%"
-      height="100%"
-      backgroundImage={`url(${lessonBackground})`}
-      backgroundAttachment="fixed"
-      backgroundRepeat="no-repeat"
-      backgroundSize="cover"
-    >
-      <HeaderIntro headerText={lesson.name} intro={lesson.intro} />
+    <Box>
+      {/* <HeaderIntro headerName={lesson.header.name} intro={lesson.intro} /> */}
       {/* {lesson.intro && (
         <Box bgColor="brand.white" h="100%" w="100%" py="130px" px="16px">
           {lesson.intro}
@@ -33,9 +30,18 @@ LessonTextContent) {
             py="130px"
             px="16px"
             bgColor={count % 2 === 0 ? "#f0f0f0" : "brand.white"}
+            position="relative"
           >
-            <Box as="h2">{subHeading.name}</Box>
-            <>{subHeading.content}</>
+            <Box
+              as="h2"
+              fontSize="xx-large"
+              fontWeight="bold"
+              py="20px"
+              lineHeight="40px"
+            >
+              {subHeading.name}
+            </Box>
+            <Box className="subHeading">{subHeading.content}</Box>
           </Box>
         );
         count++;

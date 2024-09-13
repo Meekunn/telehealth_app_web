@@ -1,58 +1,53 @@
-import React from "react";
+// import React from "react";
 import LessonText from "./LessonText";
 import { Box } from "@chakra-ui/react";
 import LessonVideo from "./LessonVideo";
 import LessonQuiz from "./LessonQuiz";
-// const IntroComponent = React.lazy(() => import("./components/Intro"));
+import { images } from "../../resuables/utilities/imageImporter";
+import HeaderIntro from "./components/HeaderIntro";
 
-// const ContentComponent = React.lazy(
-//   () => import("./components/SubHeadingContent")
-// );
 interface props {
   video?: boolean;
   text?: boolean;
   quiz?: boolean;
+  lesson: LessonContent;
 }
 
-function Lesson({ video = false, text = false, quiz = false }: props) {
+function Lesson({ video = false, text = false, quiz = false, lesson }: props) {
   // demo lesson content data for props testing
-  const lessonContent: LessonTextContent = {
-    "3": {
-      name: "Security Vulnerability and Exploits",
-      intro: (
-        <React.Suspense fallback={<div>Loading...</div>}>
-          {/* <IntroComponent /> */}
-          <Box></Box>
-        </React.Suspense>
-      ),
-      subHeadings: {
-        "1": {
-          name: "Introduction",
-          content: (
-            <React.Suspense fallback={<div>Loading...</div>}>
-              {/* <ContentComponent /> */}
-              <Box></Box>
-            </React.Suspense>
-          ),
-        },
-        "2": {
-          name: "Introduction",
-          content: (
-            <React.Suspense fallback={<div>Loading...</div>}>
-              {/* <ContentComponent /> */}
-              <Box></Box>
-            </React.Suspense>
-          ),
-        },
-      },
-    },
-  };
+  console.log(images[lesson.header.image]);
   return (
-    <Box>
-      {text && <LessonText lesson={lessonContent[3]} />}
-      {video && <LessonVideo />}
-      {quiz && <LessonQuiz />}
-    </Box>
+    <>
+      {video ? (
+        <LessonVideo video={lesson.video} title={lesson.header.name} />
+      ) : (
+        <Box
+          width="100%"
+          height="100%"
+          backgroundImage={`url(${images[lesson.header.image]})`}
+          backgroundAttachment="fixed"
+          backgroundRepeat="no-repeat"
+          backgroundSize="cover"
+        >
+          <HeaderIntro
+            headerName={lesson.header.name}
+            headerId={lesson.header.id}
+            intro={lesson.intro}
+            text={text}
+            quiz={quiz}
+          />
+
+          {text && <LessonText lesson={lesson} />}
+          {quiz && (
+            <LessonQuiz
+              phishingEmail={lesson.email}
+              intro={lesson.intro}
+              quizzes={lesson.quizzes}
+            />
+          )}
+        </Box>
+      )}
+    </>
   );
 }
 

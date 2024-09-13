@@ -2,7 +2,11 @@ import { Box, Spinner } from "@chakra-ui/react";
 import lesson1 from "../../assets/lessonVideos/costarica.mp4";
 import ReactPlayer from "react-player/lazy";
 
-function LessonVideo() {
+interface Props {
+  title: string;
+  video?: LessonContent["video"];
+}
+function LessonVideo({ title, video }: Props) {
   return (
     <Box bg="#000" w="100%" h="90vh">
       <ReactPlayer
@@ -19,7 +23,7 @@ function LessonVideo() {
             size="xl"
           />
         }
-        url={lesson1}
+        url={video?.file}
         //   config={{
         //       file: {
         //           forceVideo
