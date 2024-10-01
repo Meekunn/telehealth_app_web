@@ -1,0 +1,7 @@
+{
+    "introToPhishing": {
+        "recipient": "psa8.sa@gmail.com",
+        "subject": "Urgent: Your Account Security at Risk",
+        "body": "PhishingMail.html"
+    }
+}

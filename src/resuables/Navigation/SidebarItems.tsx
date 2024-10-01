@@ -1,20 +1,30 @@
-import { Box, VStack, Text, Progress, IconButton, Flex, Heading, Icon, CircularProgress } from '@chakra-ui/react';
+import { Box, VStack, Text, IconButton, Flex, Heading, Icon } from '@chakra-ui/react';
 import { RxCaretDown, RxCaretUp } from 'react-icons/rx';
 import { GoCheckCircleFill } from 'react-icons/go';
-import { PiCaretCircleRightLight } from 'react-icons/pi';
+// import { PiCaretCircleRightLight } from 'react-icons/pi';
 import { ISidebarModule } from './sidebarContent';
+import { useNavigate } from 'react-router-dom';
 
 interface ICourseModule extends ISidebarModule {
 	isOpen: boolean;
 	onToggle: () => void;
+	onClose: () => void;
 }
 
-const SidebarItems = ({ title, progress, items, isOpen, onToggle }: ICourseModule) => {
+const SidebarItems = ({ title, items, isOpen, onToggle, onClose }: ICourseModule) => {
+	const navigate = useNavigate();
+
+	const handleNavigate = (path: string) => {
+		navigate(path);
+		onClose();
+		console.log(path);
+	};
+
 	return (
 		<Box
 			bg={isOpen ? 'green.50' : 'transparent'}
 			_hover={{ bg: 'green.50' }}
-			py={4}
+			py={6}
 			px={4}
 			borderBottomWidth="1px"
 			borderColor="gray.100"
@@ -35,10 +45,10 @@ const SidebarItems = ({ title, progress, items, isOpen, onToggle }: ICourseModul
 						onClick={onToggle}
 					/>
 				</Flex>
-				<Flex w="full" justify="space-between" align="center">
+				{/* <Flex w="full" justify="space-between" align="center">
 					<Progress value={progress} size="xs" width="85%" colorScheme="green" borderRadius="10px" />
 					<Text fontSize="sm">{progress}%</Text>
-				</Flex>
+				</Flex> */}
 			</VStack>
 			{isOpen && (
 				<VStack align="start" mt={4} bg={'transparent'} gap={4}>
@@ -52,14 +62,16 @@ const SidebarItems = ({ title, progress, items, isOpen, onToggle }: ICourseModul
 							w="full"
 							p={2}
 							pl={6}
+							onClick={() => handleNavigate(item.path)}
 						>
-							{item.progress === 0 ? (
+							<Icon as={GoCheckCircleFill} color="green.400" w="23px" h="23px" />
+							{/* {item.progress === 0 ? (
 								<Icon as={PiCaretCircleRightLight} color="green.400" w="23px" h="23px" />
 							) : item.progress === 100 ? (
 								<Icon as={GoCheckCircleFill} color="green.400" w="23px" h="23px" />
 							) : (
 								<CircularProgress value={item.progress} size="20px" color="green.400" thickness="10px" />
-							)}
+							)} */}
 							<Text fontSize={'sm'}>{item.title}</Text>
 						</Flex>
 					))}
