@@ -10,18 +10,20 @@ import {
   Input,
   FormControl,
   FormLabel,
+  Alert,
+  AlertIcon,
 } from "@chakra-ui/react";
-import axios from "axios";
-import { mails } from "./components/utilities/mailImporter";
 
 interface LessonQuizProps {
-  quizzes: LessonTextContent[string]["quizzes"];
-  intro: LessonTextContent[string]["intro"];
-  phishingEmail?: LessonTextContent[string]["email"];
+  quizzes: Record<string, any>;
+  intro: string;
 }
 
-function LessonQuiz({ quizzes, intro, phishingEmail }: LessonQuizProps) {
+function LessonQuiz({ quizzes, intro }: LessonQuizProps) {
   const [answers, setAnswers] = useState<Record<string, string | string[]>>({});
+  const [grade, setGrade] = useState<number | null>(null);
+  const [isSubmitted, setIsSubmitted] = useState(false);
+  const [error, setError] = useState<string>("");
 
   // Handle multiple-choice/select-multiple options
   const handleOptionChange = (quizKey: string, option: string) => {
@@ -53,43 +55,44 @@ function LessonQuiz({ quizzes, intro, phishingEmail }: LessonQuizProps) {
         return (
           <VStack align="start">
             {currentQuiz.options &&
-              Object.entries(currentQuiz.options).map(([key, option]) => {
-                const isChecked = selectedAnswers.includes(key);
-                return (
-                  <Box
-                    key={key}
-                    w="100%"
-                    borderWidth="1px"
-                    borderRadius="md"
-                    p={4}
-                    // bgColor={ ? }
-                    bgColor={isChecked ? "cyan.500" : "brand.white"}
-                    color={isChecked ? "brand.white" : "initial"}
-                    borderColor={isChecked ? "cyan.500" : "gray.200"}
-                    _hover={{ cursor: "pointer" }}
-                  >
-                    {currentQuiz.type === "multiple-choice" ? (
-                      <Radio
-                        value={key}
-                        userSelect="none"
-                        colorScheme="brand,white"
-                        isChecked={isChecked}
-                        onChange={() => handleOptionChange(quizKey, key)}
-                      >
-                        {option.text}
-                      </Radio>
-                    ) : (
-                      <Checkbox
-                        colorScheme="brand,white"
-                        isChecked={isChecked}
-                        onChange={() => handleOptionChange(quizKey, key)}
-                      >
-                        {option.text}
-                      </Checkbox>
-                    )}
-                  </Box>
-                );
-              })}
+              Object.entries(currentQuiz.options).map(
+                ([key, option]: [string, any]) => {
+                  const isChecked = selectedAnswers.includes(key);
+                  return (
+                    <Box
+                      key={key}
+                      w="100%"
+                      borderWidth="1px"
+                      borderRadius="md"
+                      p={4}
+                      bgColor={isChecked ? "cyan.500" : "brand.white"}
+                      color={isChecked ? "brand.white" : "initial"}
+                      borderColor={isChecked ? "cyan.500" : "gray.200"}
+                      _hover={{ cursor: "pointer" }}
+                    >
+                      {currentQuiz.type === "multiple-choice" ? (
+                        <Radio
+                          value={key}
+                          userSelect="none"
+                          colorScheme="brand.white"
+                          isChecked={isChecked}
+                          onChange={() => handleOptionChange(quizKey, key)}
+                        >
+                          {option.text}
+                        </Radio>
+                      ) : (
+                        <Checkbox
+                          colorScheme="brand.white"
+                          isChecked={isChecked}
+                          onChange={() => handleOptionChange(quizKey, key)}
+                        >
+                          {option.text}
+                        </Checkbox>
+                      )}
+                    </Box>
+                  );
+                }
+              )}
           </VStack>
         );
       case "dropdown":
@@ -101,50 +104,19 @@ function LessonQuiz({ quizzes, intro, phishingEmail }: LessonQuizProps) {
             p={4}
             bgColor="brand.white"
             borderColor="gray.200"
-            _hover={{ cursor: "pointer", borderColor: "cyan.500" }}
-            // _focus={{ borderColor: "cyan.500" }}
           >
             <Select
-              // placeholder="Select an option"
               value={answers[quizKey] || ""}
               onChange={(e) =>
                 setAnswers({ ...answers, [quizKey]: e.target.value })
               }
               variant="unstyled"
-              sx={{
-                "& option:first-child": {
-                  marginTop: "16px",
-                },
-                "& option:last-child": {
-                  marginBottom: "16px",
-                },
-                "& option": {
-                  // height
-                  position: "relative",
-                  padding: "16px",
-                  background: "brand.white",
-                  color: "black",
-                },
-                "& option:hover": {
-                  color: "brand.white",
-                  background: "cyan.500",
-                },
-                "& option:checked": {
-                  background: "cyan:500",
-                  color: "brand.white",
-                },
-              }}
             >
               <option defaultChecked value="" disabled>
                 Select an option
               </option>
-              {currentQuiz.answerField?.options?.map((option) => (
-                <option
-                  key={option}
-                  value={option}
-                  // style={{ pad }}
-                  // _hover={{ cursor: "pointer" }}
-                >
+              {currentQuiz.answerField?.options?.map((option: string) => (
+                <option key={option} value={option}>
                   {option}
                 </option>
               ))}
@@ -160,14 +132,11 @@ function LessonQuiz({ quizzes, intro, phishingEmail }: LessonQuizProps) {
             p={4}
             bgColor="brand.white"
             borderColor="gray.200"
-            _hover={{ borderColor: "cyan.500", cursor: "pointer" }}
           >
             <Input
               placeholder="Type your answer"
               value={(answers[quizKey] as string) || ""}
               onChange={(e) => handleTextChange(quizKey, e.target.value)}
-              borderColor="transparent"
-              _focusVisible={{ borderColor: "transparent" }}
             />
           </Box>
         );
@@ -176,34 +145,73 @@ function LessonQuiz({ quizzes, intro, phishingEmail }: LessonQuizProps) {
     }
   };
 
-  const [message, setMessage] = useState("");
+  const allQuestionsAnswered = () => {
+    return Object.keys(quizzes).every((quizKey) => {
+      return answers[quizKey] && answers[quizKey].length > 0;
+    });
+  };
 
-  const sendPhishingEmail = async () => {
-    // e.preventDefault();
-    if (phishingEmail) {
-      try {
-        const emailContent = mails[phishingEmail.body];
-        const response = await axios.post(
-          "http://localhost:3000/send-phishing-email",
-          {
-            recipient: phishingEmail.recipient,
-            subject: phishingEmail.subject,
-            body: emailContent,
+  const calculateGrade = () => {
+    let totalQuestions = 0;
+    let correctAnswers = 0;
+
+    Object.keys(quizzes).forEach((quizKey) => {
+      const currentQuiz = quizzes[quizKey];
+      const userAnswers = answers[quizKey];
+      const correct = currentQuiz.correctAnswers;
+
+      // For multiple-choice and select-multiple, check if answers are arrays
+      if (
+        currentQuiz.type === "multiple-choice" ||
+        currentQuiz.type === "select-multiple"
+      ) {
+        totalQuestions += 1;
+
+        if (Array.isArray(userAnswers) && Array.isArray(correct)) {
+          // Sort and compare if both are arrays
+          if (
+            JSON.stringify(userAnswers.sort()) ===
+            JSON.stringify(correct.sort())
+          ) {
+            correctAnswers += 1;
           }
-        );
-        setMessage(response.data.message);
-      } catch (error) {
-        setMessage("Error sending email");
+        } else if (
+          typeof userAnswers === "string" &&
+          typeof correct[0] === "string"
+        ) {
+          // Compare directly if both are strings
+          if (userAnswers === correct[0]) {
+            correctAnswers += 1;
+          }
+        }
+      } else if (
+        currentQuiz.type === "fill-in-the-blank" ||
+        currentQuiz.type === "dropdown"
+      ) {
+        totalQuestions += 1;
+        // Compare directly for fill-in-the-blank or dropdown questions
+        if (typeof userAnswers === "string" && userAnswers === correct[0]) {
+          correctAnswers += 1;
+        }
       }
-    }
-    console.log(message);
+    });
+
+    // Calculate grade percentage
+    const percentage = (correctAnswers / totalQuestions) * 100;
+    setGrade(percentage);
   };
 
   const handleSubmit = () => {
-    console.log("Submitted answers:", answers);
-    // Implement your submission logic here
-    sendPhishingEmail();
+    if (!allQuestionsAnswered()) {
+      setError("Please answer all questions before submitting.");
+      return;
+    }
+
+    setError("");
+    calculateGrade();
+    setIsSubmitted(true);
   };
+
   return (
     <Box width="100%" height="100%">
       {Object.keys(quizzes).map((quizKey, index) => {
@@ -217,7 +225,9 @@ function LessonQuiz({ quizzes, intro, phishingEmail }: LessonQuizProps) {
               lineHeight="40px"
               fontSize="xx-large"
               fontWeight="bold"
-            >{`Question ${index + 1}`}</Text>
+            >
+              {`Question ${index + 1}`}
+            </Text>
             <Text py="20px" mb={4}>
               {currentQuiz.question}
             </Text>
@@ -234,7 +244,22 @@ function LessonQuiz({ quizzes, intro, phishingEmail }: LessonQuizProps) {
         );
       })}
 
-      {/* Submit Button */}
+      {error && (
+        <Alert status="error">
+          <AlertIcon />
+          {error}
+        </Alert>
+      )}
+
+      {isSubmitted && grade !== null && (
+        <Box py="32px" px="16px">
+          <Alert status="success">
+            <AlertIcon />
+            You scored: {grade.toFixed(2)}%
+          </Alert>
+        </Box>
+      )}
+
       <Box py="64px" px="8px" bgColor="#f0f0f0">
         <Text textAlign="center" p="15px" w="80%" m="auto">
           Click "Submit" if you are happy with your answers above
@@ -247,6 +272,7 @@ function LessonQuiz({ quizzes, intro, phishingEmail }: LessonQuizProps) {
             color="brand.white"
             bg="green.400"
             onClick={handleSubmit}
+            isDisabled={!allQuestionsAnswered()}
           >
             Submit
           </Button>
