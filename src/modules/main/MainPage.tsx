@@ -1,4 +1,4 @@
-import { Heading, Stack } from '@chakra-ui/react';
+import { Stack } from '@chakra-ui/react';
 import { Outlet } from 'react-router-dom';
 import Lesson from '../course-content/Lesson';
 
@@ -27,7 +27,7 @@ const MainPage = () => {
 	return (
 		<>
 			<Stack>
-				<Heading>This is just a Dummy Page...</Heading>
+				{/* <Heading>This is just a Dummy Page...</Heading> */}
 				{/* <Lesson quiz lesson={undefined} /> */}
 				{/* <Lesson video /> */}
 				<Outlet />

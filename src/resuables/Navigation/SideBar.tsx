@@ -26,7 +26,7 @@ const SideBarNav = ({ isOpen, onClose }: ISideNavBar) => {
 				</DrawerHeader>
 
 				<DrawerBody m={0} p={0}>
-					<SidebarBody />
+					<SidebarBody onClose={onClose} />
 				</DrawerBody>
 
 				<DrawerFooter></DrawerFooter>

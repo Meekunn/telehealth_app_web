@@ -2,8 +2,11 @@ import { Stack } from '@chakra-ui/react';
 import { useState } from 'react';
 import SidebarItems from './SidebarItems';
 import items from './sidebarContent';
+interface ISidebarBody {
+	onClose: () => void;
+}
 
-function SidebarBody() {
+function SidebarBody({ onClose }: ISidebarBody) {
 	const [openIndex, setOpenIndex] = useState<number | null>(null);
 
 	const handleToggle = (index: number) => {
@@ -20,6 +23,7 @@ function SidebarBody() {
 					title={item.title}
 					isOpen={openIndex === index}
 					onToggle={() => handleToggle(index)}
+					onClose={onClose}
 				/>
 			))}
 		</Stack>

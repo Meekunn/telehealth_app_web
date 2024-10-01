@@ -16,57 +16,50 @@ export interface ISidebarModule {
 
 const sidebarContent: ISidebarModule[] = [
 	{
-		title: 'Module 1 : Introduction to Cybersecurity',
+		title: 'Module 1 : Introduction to Phishing',
 		progress: 89,
 		items: [
 			{
-				title: '1.1. What is Cyber Security',
+				title: '1.1. Introduction to Phishing',
 				progress: 0,
-				path: '#',
-				// subItems: [
-				// 	{
-				// 		title: 'Introduction',
-				// 		path: '#',
-				// 		progress: 14,
-				// 	},
-				// ],
+				path: '/lessons/introToPhishing',
 			},
 			{
-				title: '1.2. The Cybersecurity Landscape',
+				title: '1.2. Quiz',
 				progress: 60,
-				path: '#',
+				path: '/lessons/introToPhishing/quiz',
 			},
 		],
 	},
 	{
-		title: 'Module 2 : Attack Techniques',
+		title: 'Module 2 : Social Engineering',
 		progress: 100,
 		items: [
 			{
-				title: '2.1. What is Cyber Security',
+				title: '2.1. What is Social Engineering',
 				progress: 100,
-				path: '#',
+				path: '/lessons/socialEngineering',
 			},
 			{
-				title: '2.2. The Cybersecurity Landscape',
+				title: '2.2. Quiz',
 				progress: 100,
-				path: '#',
+				path: '/lessons/socialEngineering/quiz',
 			},
 		],
 	},
 	{
-		title: 'Module 3 : Introduction to Cybersecurity',
+		title: 'Module 3 : Password Security',
 		progress: 30,
 		items: [
 			{
-				title: '2.1. What is Cyber Security',
+				title: '3.1. Importance to Password Security',
 				progress: 0,
-				path: '#',
+				path: '/lessons/passwordSecurity',
 			},
 			{
-				title: '2.2. The Cybersecurity Landscape',
+				title: '3.2. Quiz',
 				progress: 60,
-				path: '#',
+				path: '/lessons/passwordSecurity/quiz',
 			},
 		],
 	},
