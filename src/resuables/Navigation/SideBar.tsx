@@ -8,6 +8,7 @@ import {
 	DrawerFooter,
 } from '@chakra-ui/react';
 import SidebarBody from './SidebarBody';
+import Header from './Header';
 
 interface ISideNavBar {
 	isOpen: boolean;
@@ -19,8 +20,10 @@ const SideBarNav = ({ isOpen, onClose }: ISideNavBar) => {
 		<Drawer isOpen={isOpen} placement="left" onClose={onClose} size={'full'}>
 			<DrawerOverlay />
 			<DrawerContent>
-				<DrawerCloseButton />
-				<DrawerHeader>{/* Adding the side bar */}</DrawerHeader>
+				<DrawerCloseButton color={'white'} />
+				<DrawerHeader m={0} p={0}>
+					<Header />
+				</DrawerHeader>
 
 				<DrawerBody m={0} p={0}>
 					<SidebarBody />
