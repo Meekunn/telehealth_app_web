@@ -1,6 +1,6 @@
 import { Stack } from '@chakra-ui/react';
 import { Outlet } from 'react-router-dom';
-import Lesson from '../course-content/Lesson';
+// import Lesson from '../course-content/Lesson';
 
 const MainPage = () => {
 	// const [recipient, setRecipient] = useState("");
