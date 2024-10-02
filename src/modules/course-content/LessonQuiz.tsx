@@ -70,7 +70,6 @@ function LessonQuiz({ quizzes }: LessonQuizProps) {
                     borderWidth="1px"
                     borderRadius="md"
                     p={4}
-                    // bgColor={ ? }
                     bgColor={isChecked ? "cyan.500" : "brand.white"}
                     color={isChecked ? "brand.white" : "initial"}
                     borderColor={isChecked ? "cyan.500" : "gray.200"}
@@ -110,10 +109,8 @@ function LessonQuiz({ quizzes }: LessonQuizProps) {
             bgColor="brand.white"
             borderColor="gray.200"
             _hover={{ cursor: "pointer", borderColor: "cyan.500" }}
-            // _focus={{ borderColor: "cyan.500" }}
           >
             <Select
-              // placeholder="Select an option"
               value={answers[quizKey] || ""}
               onChange={(e) =>
                 setAnswers({ ...answers, [quizKey]: e.target.value })
@@ -127,8 +124,6 @@ function LessonQuiz({ quizzes }: LessonQuizProps) {
                   marginBottom: "16px",
                 },
                 "& option": {
-                  // height
-                  position: "relative",
                   padding: "16px",
                   background: "brand.white",
                   color: "black",
@@ -147,12 +142,7 @@ function LessonQuiz({ quizzes }: LessonQuizProps) {
                 Select an option
               </option>
               {currentQuiz.answerField?.options?.map((option) => (
-                <option
-                  key={option}
-                  value={option}
-                  // style={{ pad }}
-                  // _hover={{ cursor: "pointer" }}
-                >
+                <option key={option} value={option}>
                   {option}
                 </option>
               ))}
@@ -184,26 +174,6 @@ function LessonQuiz({ quizzes }: LessonQuizProps) {
     }
   };
 
-  // const [message, setMessage] = useState('');
-
-  // const sendPhishingEmail = async () => {
-  // 	// e.preventDefault();
-  // 	if (phishingEmail) {
-  // 		try {
-  // 			const emailContent = mails[phishingEmail.body];
-  // 			const response = await axios.post('http://localhost:3000/send-phishing-email', {
-  // 				recipient: phishingEmail.recipient,
-  // 				subject: phishingEmail.subject,
-  // 				body: emailContent,
-  // 			});
-  // 			setMessage(response.data.message);
-  // 		} catch (error) {
-  // 			setMessage('Error sending email');
-  // 		}
-  // 	}
-  // 	console.log(message);
-  // };
-  // jhsjsjb
   const calculateScore = () => {
     let calculatedScore = 0;
 
@@ -216,39 +186,32 @@ function LessonQuiz({ quizzes }: LessonQuizProps) {
         currentQuiz.type === "multiple-choice" ||
         currentQuiz.type === "dropdown"
       ) {
+        // Check if the selected answer is correct for single-choice or dropdown
         if (
           userAnswers &&
           correctAnswers[0] &&
           userAnswers[0] === correctAnswers[0]
         ) {
           calculatedScore++;
-        } else if (
-          userAnswers &&
-          correctAnswers[0] &&
-          userAnswers == correctAnswers[0]
-        ) {
-          calculatedScore++;
         }
       } else if (currentQuiz.type === "select-multiple") {
-        // For multiple answers: ensure arrays match after sorting
+        // For multiple answers, ensure arrays match after sorting
         if (
           Array.isArray(userAnswers) &&
           Array.isArray(correctAnswers) &&
           JSON.stringify(userAnswers.sort()) ===
             JSON.stringify(correctAnswers.sort())
         ) {
-          console.log(currentQuiz, "correct");
           calculatedScore++;
         }
       } else if (currentQuiz.type === "fill-in-the-blank") {
-        // For text answers: case-insensitive comparison
+        // Case-insensitive comparison for text answers
         if (
           typeof userAnswers === "string" &&
           typeof correctAnswers[0] === "string" &&
           userAnswers.trim().toLowerCase() ===
             correctAnswers[0].trim().toLowerCase()
         ) {
-          console.log(currentQuiz, "correct");
           calculatedScore++;
         }
       }
@@ -261,15 +224,14 @@ function LessonQuiz({ quizzes }: LessonQuizProps) {
     console.log("Submitted answers:", answers, score);
     calculateScore();
     onOpen(); // Open feedback modal
-    // Implement your submission logic here
-    // sendPhishingEmail();
   };
+
   return (
     <Box width="100%" height="100%">
       {Object.keys(quizzes).map((quizKey, index) => {
         const currentQuiz = quizzes[quizKey];
         return (
-          <Box key={quizKey} py="70px" px="16px" bgColor="brand.white">
+          <Box key={quizKey} py="70px" px="16px" bgColor="white">
             <Text
               as="h3"
               pt="20px"
@@ -278,9 +240,6 @@ function LessonQuiz({ quizzes }: LessonQuizProps) {
               fontSize="xx-large"
               fontWeight="bold"
             >{`Question ${index + 1}`}</Text>
-            {/* <Text py="20px" mb={4}>
-							{currentQuiz.question}
-						</Text> */}
             <FormControl>
               <FormLabel>{currentQuiz.question}</FormLabel>
               {currentQuiz.instruction && (
@@ -304,7 +263,7 @@ function LessonQuiz({ quizzes }: LessonQuizProps) {
             w="100%"
             h="100%"
             py={5}
-            color="brand.white"
+            color="white"
             bg="green.400"
             onClick={handleSubmit}
             _hover={{ bg: "green.500" }}
