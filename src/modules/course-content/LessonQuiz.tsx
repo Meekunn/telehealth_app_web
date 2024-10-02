@@ -203,7 +203,7 @@ function LessonQuiz({ quizzes }: LessonQuizProps) {
   // 	}
   // 	console.log(message);
   // };
-
+  // jhsjsjb
   const calculateScore = () => {
     let calculatedScore = 0;
 
@@ -216,7 +216,6 @@ function LessonQuiz({ quizzes }: LessonQuizProps) {
         currentQuiz.type === "multiple-choice" ||
         currentQuiz.type === "dropdown"
       ) {
-        // Single-answer questions: compare first user answer with the first correct answer
         if (
           userAnswers &&
           correctAnswers[0] &&
