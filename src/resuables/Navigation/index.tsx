@@ -14,7 +14,20 @@ const Navigation = ({ children }: NavigationProps) => {
 			<SideBarNav isOpen={isOpen} onClose={onClose} />
 			<Box w="full" h="full">
 				{/* Add MainPage Header Here and remove IconButton */}
-				<IconButton colorScheme="blue" aria-label="Toggle Sidebar" icon={<IoMenu />} onClick={onOpen} />
+				<IconButton
+					colorScheme="blue"
+					aria-label="Toggle Sidebar"
+					variant={'ghost'}
+					color={'black'}
+					fontSize="2rem"
+					icon={<IoMenu />}
+					onClick={onOpen}
+					position="absolute"
+					top={5}
+					right={15}
+					zIndex={'9999'}
+					display={isOpen ? 'none' : 'flex'}
+				/>
 
 				{children}
 			</Box>
